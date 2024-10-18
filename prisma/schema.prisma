@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+  createdAt     DateTime         @default(now())
+  active   Boolean  @default(true)
+  isVerified             Boolean           @default(false)
+  verificationToken      String?           @unique
+  verificationTokenExpiry DateTime?
+  resetToken         String?  
+  resetTokenExpiry   DateTime? 
+  subscriptions Subscription[]
+  emailTemplates EmailTemplates[] 
+
+}
+
+model Invoice {
+  id         String   @id @default(uuid())
+  customer_id String
+  amount     Int
+  status     String
+  date       DateTime
+  Customer   Customer @relation(fields: [customer_id], references: [id])
+}
+
+model Customer {
+  id       String    @id @default(uuid())
+  name     String
+  email    String    @unique
+  image_url String
+  Invoice  Invoice[]
+}
+
+model Revenue {
+  month   String @id
+  revenue Int
+}
+
+model Module {
+  id            Int                  @id @default(autoincrement())
+  moduleName    String
+  description   String?
+  createdAt     DateTime             @default(now())
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id               Int             @id @default(autoincrement())
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String
+  module           Module          @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  moduleId         Int
+  subscriptionType SubscriptionEnum
+  price            Float
+  durationInMonths Int
+  startDate        DateTime
+  endDate          DateTime
+  createdAt        DateTime        @default(now())
+  metadata         Json?           
+}
+
+enum SubscriptionEnum {
+  FULL
+  REPEATED
+}
+
+model EmailTemplates {
+  id          Int      @id @default(autoincrement())
+  name        String
+  content     String?  // Made nullable
+  description String?
+  version     Int      @default(1)  // New version attribute
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String   
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  externalId  String   @default(uuid()) @unique
+  active      Boolean  @default(true) 
+}
