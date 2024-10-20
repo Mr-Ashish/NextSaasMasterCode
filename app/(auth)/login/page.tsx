@@ -48,8 +48,8 @@ export default function LoginForm() {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
-      {/* Ezemailer Heading */}
-      <h1 className="text-4xl font-bold">EzeMailer</h1>
+      {/* Launchpad Heading */}
+      <h1 className="text-4xl font-bold">Launchpad</h1>
 
       {/* Login Card */}
       <Card className="mx-auto max-w-sm">

@@ -17,9 +17,8 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>EzeMailer.</strong> instantly converts your HTML into
-            email-ready templates, ensuring perfect compatibility with all major
-            email clients.
+            <strong>LaunchPad.</strong> Start making your own Saas tool quickly.
+            Get your product to the world faster.
           </p>
           <Link
             href="/dashboard"

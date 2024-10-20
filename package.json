@@ -1,5 +1,5 @@
 {
-  "name": "ezemailer",
+  "name": "saastool",
   "private": true,
   "scripts": {
     "build": "next build",

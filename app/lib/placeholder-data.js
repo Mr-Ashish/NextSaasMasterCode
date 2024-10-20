@@ -183,8 +183,8 @@ const revenue = [
 const modules = [
   {
     id: 1,
-    moduleName: 'Ezemailer',
-    description: 'Module to convert HTML to email',
+    moduleName: 'Launchpad',
+    description: 'Module to launch the app',
   },
 ];
 

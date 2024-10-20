@@ -93,7 +93,7 @@ function ForgotPasswordFormContent() {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
-      <h1 className="text-4xl font-bold">Ezemailer</h1>
+      <h1 className="text-4xl font-bold">LaunchPad</h1>
 
       {token ? (
         <Card className="mx-auto max-w-sm">

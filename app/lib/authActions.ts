@@ -144,7 +144,7 @@ export async function sendResetPasswordMailAction(email: string) {
 
     // Send email with the reset token
     const resetLink = `${process.env.NEXT_PUBLIC_APP_URL}/reset-password?token=${resetToken}`;
-    const subject = 'Ezemailer Password Reset Request';
+    const subject = 'Launchpad Password Reset Request';
     const htmlContent = `<p>Click the link below to reset your password:</p>
                        <a href="${resetLink}">${resetLink}</a>`;
 
@@ -162,15 +162,15 @@ async function sendVerificationEmail(toEmail, token) {
 
   // Define email options
   const mailOptions = {
-    from: process.env.EMAIL_FROM, // e.g., '"EzeMailer" <no-reply@ezemailer.com>'
+    from: process.env.EMAIL_FROM, // e.g., '"EzeMaLaunchpadiler" <no-reply@Launchpad.com>'
     to: toEmail,
-    subject: 'Verify Your Email for EzeMailer',
+    subject: 'Verify Your Email for Launchpad',
     html: `
       <p>Hi,</p>
-      <p>Thank you for signing up for EzeMailer. Please verify your email by clicking the link below:</p>
+      <p>Thank you for signing up for Launchpad. Please verify your email by clicking the link below:</p>
       <a href="${verificationUrl}" style="display: inline-block; padding: 10px 20px; background-color: #1D4ED8; color: white; text-decoration: none; border-radius: 5px;">Verify Email</a>
       <p>If you did not sign up for this account, you can ignore this email.</p>
-      <p>Thanks,<br/>The EzeMailer Team</p>
+      <p>Thanks,<br/>The Launchpad Team</p>
     `,
   };
 

@@ -78,8 +78,8 @@ export default function VerifyEmail() {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
-      {/* Ezemailer Heading */}
-      <h1 className="text-4xl font-bold">EzeMailer</h1>
+      {/* Launchpad Heading */}
+      <h1 className="text-4xl font-bold">Launchpad</h1>
 
       {/* Verification Card */}
       <Card className="mx-auto w-96 max-w-sm">

@@ -35,21 +35,18 @@ export default function NavLinks() {
 
   const links: NavLink[] = [
     { name: 'Home', href: '/dashboard', icon: HomeIcon, isValid: true },
-    // Uncomment and update the following links as needed
-    // {
-    //   name: 'Invoices',
-    //   href: '/dashboard/invoices',
-    //   icon: DocumentDuplicateIcon,
-    //   isValid: true, // Update condition as necessary
-    // },
-    // { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon, isValid: true },
     {
-      name: 'Template Validator',
-      href: '/dashboard/validator',
+      name: 'Invoices',
+      href: '/dashboard/invoices',
       icon: DocumentDuplicateIcon,
-      isValid: true, // Update condition based on subscription or other criteria
+      isValid: true, // Update condition as necessary
     },
-    // Add more internal links here
+    {
+      name: 'Customers',
+      href: '/dashboard/customers',
+      icon: UserGroupIcon,
+      isValid: true,
+    },
   ];
 
   // Define the external "Contact Us" link separately
